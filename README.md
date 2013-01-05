@@ -3,11 +3,11 @@ atdc
 
 Automation tool for downloading content
 
-=== Usage ===
-erl -pa ebin
-mnesia:start().
-ssl:start().
-inets:start().
-rss:init().
-rss:add(FeedName, HtmlLink).
-rss:update_feed(FeedName).
+=== Usage ===<br>
+erl -pa ebin<br>
+mnesia:start().<br>
+ssl:start().<br>
+inets:start().<br>
+rss:init().<br>
+rss:add(FeedName, HtmlLink).<br>
+rss:update_feed(FeedName).<br>
