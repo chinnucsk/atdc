@@ -2,8 +2,8 @@
 -include("rss.hrl").
 -include_lib("stdlib/include/qlc.hrl").
 -export([init/0,
-         add_rss/2,
-         update_rss_feed/1]).
+         add/2,
+         update_feed/1]).
 
 init() ->
     %% create table for rss
@@ -13,7 +13,7 @@ init() ->
                          {attributes, record_info(fields, rss)},
                          {type, set}]).
 
-add_rss(RssName, HtmlLink)
+add(RssName, HtmlLink)
   when is_atom(RssName), is_list(HtmlLink) ->
     case catch mnesia:create_table(rss_feed,
                                    [{ram_copies, [node()]},
@@ -35,7 +35,7 @@ add_rss(RssName, HtmlLink)
     mnesia:transaction(F).
     
 
-update_rss_feed(RssName) 
+update_feed(RssName) 
   when is_atom(RssName) ->
     Q = qlc:q( 
           [E || E <- mnesia:table(rss_feed),
