@@ -1,0 +1,13 @@
+{application, atdc,
+ [
+  {description, ""},
+  {vsn, "1"},
+  {registered, []},
+  {applications, [kernel,
+                  stdlib,
+                  mnesia,
+                  ssl,
+                  inets]},
+  {mod, {atdc_app, []}},
+  {env, []}
+ ]}.
